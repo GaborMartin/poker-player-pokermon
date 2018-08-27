@@ -17,7 +17,7 @@ class Player {
           bet(gameState.current_buy_in - myPlayer.bet + 50);
         }
         else {
-          bet(0);
+          bet(10);
         }
       }
 
@@ -36,10 +36,10 @@ class Player {
           bet(gameState.current_buy_in - myPlayer.bet + 50);
         }
         else {
-          bet(0);
+          bet(10);
         }
       } else {
-        bet(0);
+        bet(10);
       /*
       if (gameState.current_buy_in < 100) {
         bet(gameState.current_buy_in-myPlayer.bet + 10);
