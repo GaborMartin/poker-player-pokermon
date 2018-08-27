@@ -5,8 +5,11 @@ class Player {
 
   static betRequest(gameState, bet) {
     console.log(gameState.community_cards);
-    console.log(gameState.players);
-    bet(10);
+    let cards = gameState.players;
+    for (let i = 0; i < cards.length; i++) {
+      console.log(cards[i]);
+    }
+    bet(15);
   }
 
   static showdown(gameState) {
