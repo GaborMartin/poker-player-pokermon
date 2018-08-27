@@ -29,7 +29,7 @@ class Player {
       
       console.log(gameState.current_buy_in-myPlayer.bet + 10);
     }
-    if (myPlayer.hole_cards[0].rank == myPlayer.hole_cards[1].rank) {
+    if (myPlayer.hole_cards[0].rank == myPlayer.hole_cards[1].rank || myPlayer.hole_cards[0].rank instanceof String || myPlayer.hole_cards[1].rank instanceof String) {
       bet(gameState.current_buy_in-myPlayer.bet + 10);
     }
     if (gameState.current_buy_in < 100) {
