@@ -7,7 +7,7 @@ class Player {
     let myPlayer = this.getMyPlayer(gameState);
     console.log(myPlayer);
     let community_cards = gameState.community_cards;
-    let cards = gameState.players;
+    let cards = gameState.players.hole_cards;
     let counter = 0;
     for (let i = 0; i < community_cards.length; i++) {
       for (let j = 0; i < cards.length; i++) {
@@ -26,8 +26,8 @@ class Player {
 
   static getMyPlayer(gameState) {
     for (let i = 0; 0 < gameState.players.length; i ++) {
-      if (gameState.player[i].name == "Pokermon") {
-        return player = gameState.player[i];
+      if (gameState.players[i].name == "Pokermon") {
+        return player = gameState.players[i];
       }
     }
   }
