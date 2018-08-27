@@ -39,7 +39,7 @@ class Player {
         if (myPlayer.hole_cards[0].rank == myPlayer.hole_cards[1].rank && ( myPlayer.hole_cards[0].rank == '10' || myPlayer.hole_cards[0].rank == 'J' || myPlayer.hole_cards[0].rank == 'Q' || myPlayer.hole_cards[0].rank == 'K' || myPlayer.hole_cards[0].rank == 'A' )) {
           bet(gameState.current_buy_in - myPlayer.bet + 10);
         }
-        else {
+        else if(myPlayer.bet < 500){
           bet(0);
         }
       } else {
