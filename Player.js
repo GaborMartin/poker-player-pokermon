@@ -8,7 +8,9 @@ class Player {
     let myPlayer = this.getMyPlayer(gameState);
     console.log(myPlayer);
     let community_cards = gameState.community_cards;
+    console.log(community_cards);
     let cards = myPlayer.hole_cards;
+    console.log(cards);
     let counter = 0;
     for (let i = 0; i < community_cards.length; i++) {
       for (let j = 0; i < cards.length; j++) {
@@ -22,6 +24,7 @@ class Player {
     } else if (counter == 4) {
       bet(myPlayer.stack);
     }
+    console.log(gameState.current_buy_in-myPlayer.bet + 10);
     bet(gameState.current_buy_in-myPlayer.bet + 10);
   }
 
