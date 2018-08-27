@@ -22,7 +22,7 @@ class Player {
     } else if (counter == 4) {
       bet(myPlayer.stack);
     }
-    bet(150);
+    bet(gameState.current_buy_in-myPlayer.bet + 10);
   }
 
   static getMyPlayer(gameState) {
