@@ -15,7 +15,7 @@ class Player {
 
     if (community_cards.length > 0) {
       for (let i = 0; i < community_cards.length; i++) {
-        for (let j = 0; i < cards.length; j++) {
+        for (let j = 0; j < cards.length; j++) {
           if (community_cards[i].rank == cards[j].rank) {
             counter += 1;
           }
