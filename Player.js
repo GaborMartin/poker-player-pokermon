@@ -25,11 +25,13 @@ class Player {
   }
 
   static getMyPlayer(gameState) {
+    var player = null;
     for (let i = 0; 0 < gameState.players.length; i ++) {
       if (gameState.players[i].name == "Pokermon") {
-        return player = gameState.players[i];
+        player = gameState.players[i];
       }
     }
+    return player;
   }
 
   static showdown(gameState) {
