@@ -7,6 +7,8 @@ class Player {
     try {
       console.log(gameState);
       let myPlayer = this.getMyPlayer(gameState);
+      let community_cards = gameState.community_cards;
+      let cards = myPlayer.hole_cards;
       console.log(myPlayer);
 
       // if no community cards
@@ -18,6 +20,13 @@ class Player {
           bet(0);
         }
       }
+
+    // if no community cards
+    if (community_cards.length == 0) {
+      if (myPlayer.hole_cards[0].rank == myPlayer.hole_cards[1].rank || myPlayer.hole_cards[0].rank=='J' || myPlayer.hole_cards[0].rank=='Q' ||myPlayer.hole_cards[0].rank=='K' ||myPlayer.hole_cards[0].rank=='A' || myPlayer.hole_cards[1].rank=='J' || myPlayer.hole_cards[1].rank=='Q'|| myPlayer.hole_cards[1].rank=='K'|| myPlayer.hole_cards[1].rank=='A' ){
+        bet(gameState.current_buy_in-myPlayer.bet + 10);
+      }
+    }
 
       // If flop turn river.
       else if (community_cards.length > 0) {
@@ -35,20 +44,20 @@ class Player {
         }
       } else {
         bet(0);
-      }
-
       /*
       if (gameState.current_buy_in < 100) {
         bet(gameState.current_buy_in-myPlayer.bet + 10);
       }
       */
+    } 
     } catch (er) {
       console.log(er);
       bet(0);
     }
-  } 
+  }
 
-  static countPairs() {
+  static countPairs(gameState) {
+    let myPlayer = this.getMyPlayer(gameState);
     let community_cards = gameState.community_cards;
     let cards = myPlayer.hole_cards;
     console.log(community_cards);
