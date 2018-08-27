@@ -5,6 +5,7 @@ class Player {
 
   static betRequest(gameState, bet) {
     console.log(gameState.community_cards);
+    console.log(gameState.players);
     bet(10);
   }
 
