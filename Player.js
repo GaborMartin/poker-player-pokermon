@@ -22,13 +22,20 @@ class Player {
         }
       }
       if (counter > 1) {
-        bet(300);
+        bet(gameState.current_buy_in-myPlayer.bet + 10);
       } else if (counter == 4) {
         bet(myPlayer.stack);
       }
+      
       console.log(gameState.current_buy_in-myPlayer.bet + 10);
     }
-    bet(gameState.current_buy_in-myPlayer.bet + 10);
+    if (myPlayer.hole_cards[0].rank == myPlayer.hole_cards[1].rank) {
+      bet(gameState.current_buy_in-myPlayer.bet + 10);
+    }
+    if (gameState.current_buy_in < 100) {
+      bet(gameState.current_buy_in-myPlayer.bet + 10);
+    }
+    bet(0);
   }
 
   static getMyPlayer(gameState) {
