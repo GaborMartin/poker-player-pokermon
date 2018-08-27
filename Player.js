@@ -12,19 +12,22 @@ class Player {
     let cards = myPlayer.hole_cards;
     console.log(cards);
     let counter = 0;
-    for (let i = 0; i < community_cards.length; i++) {
-      for (let j = 0; i < cards.length; j++) {
-        if (community_cards[i].rank == cards[j].rank) {
-          counter += 1;
+
+    if (community_cards.length > 0) {
+      for (let i = 0; i < community_cards.length; i++) {
+        for (let j = 0; i < cards.length; j++) {
+          if (community_cards[i].rank == cards[j].rank) {
+            counter += 1;
+          }
         }
       }
+      if (counter > 1) {
+        bet(300);
+      } else if (counter == 4) {
+        bet(myPlayer.stack);
+      }
+      console.log(gameState.current_buy_in-myPlayer.bet + 10);
     }
-    if (counter > 1) {
-      bet(300);
-    } else if (counter == 4) {
-      bet(myPlayer.stack);
-    }
-    console.log(gameState.current_buy_in-myPlayer.bet + 10);
     bet(gameState.current_buy_in-myPlayer.bet + 10);
   }
 
