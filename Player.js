@@ -8,10 +8,10 @@ class Player {
     let myPlayer = this.getMyPlayer(gameState);
     console.log(myPlayer);
     let community_cards = gameState.community_cards;
-    let cards = gameState.players.hole_cards;
+    let cards = gameState.myPlayer.hole_cards;
     let counter = 0;
     for (let i = 0; i < community_cards.length; i++) {
-      for (let j = 0; i < cards.length; i++) {
+      for (let j = 0; i < cards.length; j++) {
         if (community_cards[i].rank == cards[j].rank) {
           counter += 1;
         }
@@ -28,7 +28,7 @@ class Player {
   static getMyPlayer(gameState) {
     var player = null;
     for (let i = 0; i < gameState.players.length; i++) {
-      if (gameState.players[i].name == "Pokermon") {
+      if (gameState.players[i].name == 'Pokermon') {
         player = gameState.players[i];
       }
     }
