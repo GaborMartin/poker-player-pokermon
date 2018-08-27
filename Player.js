@@ -4,6 +4,7 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
+    console.log(gameState);
     let myPlayer = this.getMyPlayer(gameState);
     console.log(myPlayer);
     let community_cards = gameState.community_cards;
@@ -26,7 +27,7 @@ class Player {
 
   static getMyPlayer(gameState) {
     var player = null;
-    for (let i = 0; 0 < gameState.players.length; i ++) {
+    for (let i = 0; i < gameState.players.length; i++) {
       if (gameState.players[i].name == "Pokermon") {
         player = gameState.players[i];
       }
