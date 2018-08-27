@@ -8,7 +8,7 @@ class Player {
     let myPlayer = this.getMyPlayer(gameState);
     console.log(myPlayer);
     let community_cards = gameState.community_cards;
-    let cards = gameState.myPlayer.hole_cards;
+    let cards = myPlayer.hole_cards;
     let counter = 0;
     for (let i = 0; i < community_cards.length; i++) {
       for (let j = 0; i < cards.length; j++) {
