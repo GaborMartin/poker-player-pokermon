@@ -9,7 +9,7 @@ class Player {
     for (let i = 0; i < cards.length; i++) {
       console.log(cards[i]);
     }
-    bet(15);
+    bet(150);
   }
 
   static showdown(gameState) {
