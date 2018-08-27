@@ -7,10 +7,6 @@ class Player {
     console.log(gameState);
     let myPlayer = this.getMyPlayer(gameState);
     console.log(myPlayer);
-    let community_cards = gameState.community_cards;
-    console.log(community_cards);
-    let cards = myPlayer.hole_cards;
-    console.log(cards);
     
     // if no community cards
     if (community_cards.length == 0) {
@@ -42,6 +38,10 @@ class Player {
   } 
 
   static countPairs() {
+    let community_cards = gameState.community_cards;
+    let cards = myPlayer.hole_cards;
+    console.log(community_cards);
+    console.log(cards);
     let counter = 0;
     for (let i = 0; i < community_cards.length; i++) {
       for (let j = 0; j < cards.length; j++) {
