@@ -13,8 +13,8 @@ class Player {
 
       // if no community cards
       if (community_cards.length == 0) {
-        if (myPlayer.hole_cards[0].rank == myPlayer.hole_cards[1].rank || myPlayer.hole_cards[0].rank == 'J' || myPlayer.hole_cards[0].rank == 'Q' || myPlayer.hole_cards[0].rank == 'K' || myPlayer.hole_cards[0].rank == 'A' || myPlayer.hole_cards[1].rank == 'J' || myPlayer.hole_cards[1].rank == 'Q' || myPlayer.hole_cards[1].rank == 'K' || myPlayer.hole_cards[1].rank == 'A') {
-          bet(gameState.current_buy_in - myPlayer.bet );
+        if (myPlayer.hole_cards[0].rank == myPlayer.hole_cards[1].rank && ( myPlayer.hole_cards[0].rank == '10' || myPlayer.hole_cards[0].rank == 'J' || myPlayer.hole_cards[0].rank == 'Q' || myPlayer.hole_cards[0].rank == 'K' || myPlayer.hole_cards[0].rank == 'A' )) {
+          bet(gameState.current_buy_in - myPlayer.bet + 10);
         }
         else {
           bet(0);
@@ -23,17 +23,20 @@ class Player {
 
       // If flop turn river.
       else if (community_cards.length > 0) {
-        if (this.countPairs() == 4) {
+        if (this.countPairs(gameState) == 4) {
           bet(myPlayer.stack);
-        } else if (this.countPairs() == 3) {
+        } else if (this.countPairs(gameState) == 3) {
           bet(myPlayer.stack);
-        } else if (this.countPairs() == 2) {
+        } else if (this.countPairs(gameState) == 2) {
           bet(gameState.current_buy_in - myPlayer.bet + gameState.current_buy_in - myPlayer.bet / 2);
-        } else if (this.countPairs() == 1) {
-          bet(gameState.current_buy_in - myPlayer.bet);
+        } else if (this.countPairs(gameState) == 1) {
+          bet(gameState.current_buy_in - myPlayer.bet + 10);
         }
-        if (myPlayer.hole_cards[0].rank == myPlayer.hole_cards[1].rank || myPlayer.hole_cards[0].rank == 'J' || myPlayer.hole_cards[0].rank == 'Q' || myPlayer.hole_cards[0].rank == 'K' || myPlayer.hole_cards[0].rank == 'A' || myPlayer.hole_cards[1].rank == 'J' || myPlayer.hole_cards[1].rank == 'Q' || myPlayer.hole_cards[1].rank == 'K' || myPlayer.hole_cards[1].rank == 'A') {
-          bet(gameState.current_buy_in - myPlayer.bet);
+        if (myPlayer.hole_cards[0].rank == myPlayer.hole_cards[1].rank && ( myPlayer.hole_cards[0].rank == '10' || myPlayer.hole_cards[0].rank == 'J' || myPlayer.hole_cards[0].rank == 'Q' || myPlayer.hole_cards[0].rank == 'K' || myPlayer.hole_cards[0].rank == 'A' )) {
+          bet(gameState.current_buy_in - myPlayer.bet + 10);
+        }
+        else {
+          bet(0);
         }
       } else {
         bet(0);
